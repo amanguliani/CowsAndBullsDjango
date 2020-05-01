@@ -1,0 +1,24 @@
+<!doctype html>
+<head>
+    <title>Cows And Bulls</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body OnLoad="document.myform.guess.focus();">
+<div class="container">
+    <div class="center hero-unit">
+        <h1>Cows and Bulls!!</h1>
+            <l> Cows and Bulls is a word guessing game.<br>
+                I will think of a word and you have to try and guess it.<br>
+                Don't worry i will give you clues to guide you.<br>
+                &#127919; means you got a character at the right place<br>
+                &hearts; means you are close, you found a char but not at its place <br>
+                &cross; means nothing matches
+            </l>
+            <br>
+            <br>
+            <form action="playgame" method="GET"> {% csrf_token %}
+                <button type='submit' name="LetsPlay">Ready to Play ?</button>
+            </form>
+    </div>
+</div>
+</body>

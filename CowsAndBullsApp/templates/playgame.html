@@ -1,0 +1,67 @@
+<!doctype html>
+<head>
+    <title>Cows And Bulls</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body OnLoad="document.myform.guess.focus();">
+<div class="container">
+    <div class="center hero-unit">
+        {% if win %}
+            <span style='font-size:100px;'>&#127881;</span>
+            <h2> Congratulations !! You got it !! </h2>
+            <form action='/cowsandbulls' method="GET">
+                {% csrf_token %}
+                <button type='submit' name="PlayAgain">Lets play again ?</button>
+            </form>
+        {% elif lose %}
+            <span style='font-size:100px;'>&#128542;</span>
+            <h2> Chances up! You couldn't guess my word this time </h2>
+            <h3> My word was {{secret_word}} </h3>
+            <form action='/cowsandbulls' method="GET">
+                {% csrf_token %}
+                <button type='submit' name="PlayAgain">Lets play again ?</button>
+            </form>
+        {% else %}
+            <table>
+                <h3>Let's Play Cows & Bulls !!</h3>
+                {% if clues_list %}
+                <tr>
+                    <th>No.</th>
+                    <th>Word</th>
+                    <th>Clue</th>
+                </tr>
+                {% endif %}
+                {% for clue in clues_list %}
+                <tr>
+                    <th>{{forloop.counter}}</th>
+                    <th>{{clue.Word}}</th>
+                    {% if clue.Bulls != 0 or clue.Cows != 0 %}
+                    <th>{% for x in ""|ljust:clue.Bulls %}&#127919;{% endfor %}{% for x in ""|ljust:clue.Cows %}&hearts;{% endfor %}</th>
+                    {% else %}
+                    <th>&cross;</th>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <form method="POST"> {% csrf_token %}
+                {{ form }}
+                <input type="submit" name="GuessWord" value="Submit" />
+            </form>
+                {% if error_in_guess == 'Invalid' %}
+                    <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        Invalid guess, Guess again !
+                    </div>
+                {% endif %}
+                {% if error_in_guess == 'Duplicate' %}
+                    <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        You already guessed that !
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+</body>

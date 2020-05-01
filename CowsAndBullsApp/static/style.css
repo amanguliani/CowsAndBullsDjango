@@ -1,0 +1,111 @@
+html, body, ul {
+  padding:0;
+  margin:0;
+  background-color: #FFFFF0;
+}
+
+.container{
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.hero-unit {
+  padding: 60px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  color: inherit;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  border-radius: 8px;
+  width: 50%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  width: 50 %;
+  padding: 10px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: #008CBA; /* Green */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  text-align: center;
+  color: #999;
+}
+
+table {
+  border-collapse: collapse;
+  margin-left:auto;
+  margin-right:auto;
+  width: 30%;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+.alert {
+  width:50%
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
