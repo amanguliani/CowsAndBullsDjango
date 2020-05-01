@@ -17,8 +17,8 @@ def playgame(request):
         request.session['secret_word'] = get_random_word(4)
 
     if 'GuessWord' in request.POST and form.is_valid():
-        secret_word = request.session.get('secret_word')
-        guessed_word = form.cleaned_data['your_guess']
+        secret_word = request.session.get('secret_word').lower()
+        guessed_word = form.cleaned_data['your_guess'].lower()
         clues_list = request.session.get('clues_list', [])
         request.session['error_in_guess'] = ''
 

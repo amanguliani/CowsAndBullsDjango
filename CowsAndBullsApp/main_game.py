@@ -2,11 +2,11 @@ import os
 import json
 import random
 
-with open(os.path.join("cowsandbulls", "data", "words_dictionary.json"), 'r') as jsonfile:
+with open(os.path.join("CowsAndBullsApp", "data", "words_dictionary.json"), 'r') as jsonfile:
     data = json.load(jsonfile)
 dictionary = list(data.keys())
 
-with open(os.path.join("cowsandbulls", "data", "common.json"), 'r') as jsonfile:
+with open(os.path.join("CowsAndBullsApp", "data", "common.json"), 'r') as jsonfile:
     data = json.load(jsonfile)
 word_list = data["commonWords"]
 
